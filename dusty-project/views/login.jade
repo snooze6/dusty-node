@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= Login
+  p Welcome to the App, please Login
+
+  if error
+    p=error
+
+  form(method="POST")
+    input(type="text", name="user", autocomplete="off")
+    input(type="password", name="description", autocomplete="off")
+    input(type="submit")
