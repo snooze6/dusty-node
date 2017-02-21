@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mongoose = require('mongoose');
+var sanitizerPlugin = require('mongoose-sanitizer');
 
 var auth = require('./users').check;
 
@@ -17,6 +18,8 @@ var ThingSchema = new mongoose.Schema({
         max: 2
     }
 });
+ThingSchema.plugin(sanitizerPlugin);
+
 
 // The connection
 var Thing = mongoose.model('Thing', ThingSchema);
@@ -62,6 +65,33 @@ router.get('/', auth, function(req, res, next) {
             return res.json(things)
         }
   })
+});
+
+// Create thing
+router.post('/', auth, function (req, res, next) {
+    if (req && req.decoded && req.decoded._doc &&  req.decoded._doc.rol == 1){
+        var body = eval(req.body);
+
+        if (body && body.has('title') && body.has('autor') && body.has('url')) {
+            var instance = new Thing();
+
+            instance.title = body.title;
+            instance.autor = body.autor;
+            instance.url = body.url;
+
+            instance.save(function (err, data) {
+                if (err) {
+                    res.json({sucess: false, message: err.message})
+                } else {
+                    res.json({sucess: true, data: data})
+                }
+            });
+        } else {
+            res.status(400).json({sucess: false, message: 'No valid parameters'})
+        }
+    } else {
+        res.status(403).json({sucess: false, message: 'No authentification provided'})
+    }
 });
 
 // Reset function

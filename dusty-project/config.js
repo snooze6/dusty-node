@@ -4,5 +4,6 @@
 
 module.exports = {
     'secret': 's3cret',
-    'database': 'mongodb://localhost/test'
+    'database': 'mongodb://localhost/test',
+    'flag': '(RP1uR!XK:Dm'
 };

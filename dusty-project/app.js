@@ -26,7 +26,9 @@ app.set('secret', config.secret);
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-// This lets the url-injection happen
+app.use(bodyParser.raw());
+app.use(bodyParser.text());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 

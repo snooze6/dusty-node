@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('../config');
+var sanitizerPlugin = require('mongoose-sanitizer');
 
 
 // The Schema
@@ -17,6 +18,7 @@ var UserSchema = new mongoose.Schema({
         max: 1
     }
 });
+UserSchema.plugin(sanitizerPlugin);
 
 // The connection
 var User = mongoose.model('User', UserSchema);
@@ -41,27 +43,10 @@ decode = function (req, res, next) {
         });
 
     } else {
-        // // if there is no token
-        // // return an error
-        // return res.status(403).send({
-        //     success: false,
-        //     message: 'No token provided.'
-        // });
-
+        // We won't have decoded info
         next();
     }
 };
-
-// // Get users
-// router.get('/', function(req, res, next) {
-//   User.find({}, function(err,users){
-//       if (err){
-//           return next(err);
-//       } else {
-//           return res.json(users)
-//       }
-//   })
-// });
 
 // Login render
 router.get('/login', function (req, res, next) {
