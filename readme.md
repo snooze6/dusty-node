@@ -40,3 +40,5 @@ Y la aplicación debería estar disponible en [http://localhost:1337](http://loc
 
 1. [Hacking NodeJS and MongoDB](http://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html)
 2. [NoSQL injection wordlist](https://github.com/cr0hn/nosqlinjection_wordlists/blob/master/mongodb_nosqli.txt)
+3. [SSJS Web Shell Injection](https://s1gnalcha0s.github.io/node/2015/01/31/SSJS-webshell-injection.html)
+4. [SSJS Injection](http://hydrasky.com/network-security/server-side-javascript-injection-ssjs/)
