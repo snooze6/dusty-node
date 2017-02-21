@@ -10,38 +10,33 @@ Un buen ejemplo de esto es MongoDB, una base de datos documental que es ampliame
 
 En primer lugar, la facilidad de realización es similar, sin embargo una vulnerabilidad de inyección NoSQL puede ser menos grave por los siguientes motivos:
 
-* Si la BD está correctamente fragmentada, en una inyección NoSQL es complicado cambiar la colección sobre la que se realizan las queries, esto se debe a que habría que cambiar la dirección de la conexión del conector que muchas veces está harcodeada. Una vez que el se establece la conexión con una colección, las operaciones realizadas por el conector solo se pueden realizar en el contecto de la conexión. No podemos cambiar de tabla o de base de datos como en SQL.
-* Normalmente no podemos cambiar el tipo de operación que se realiza, esto es, no podremos hacer un delete fácilmente.
+* Si la BD está correctamente fragmentada, en una inyección NoSQL es complicado cambiar la colección sobre la que se realizan las queries, esto se debe a que habría que cambiar la dirección de la conexión del conector que muchas veces está harcodeada. Una vez que el se establece la conexión con una colección, las operaciones realizadas por el conector solo se pueden realizar en el contexto de la conexión. No podemos cambiar de tabla o de base de datos como en SQL.
+* Normalmente no podemos cambiar el tipo de operación que se realiza, esto es, si la operación es un find entonces no la podremos cambiar a delete de manera sencilla.
 
 ## Definiendo el reto
 
-Con el objetivo de aprender sobre un caso práctico pondremos a disposición un docker con una máquina vulnerable. El objetivo será conseguir las 3 banderas que se encuentran en su interios.
+Con el objetivo de aprender sobre un caso práctico pondremos a disposición un docker con una máquina vulnerable. El objetivo será conseguir las 3 banderas que se encuentran en su interior.
 
-### 1. NoSQL injection Hello World - Usuario flag
+El docker se encuentra [aquí](https://github.com/snooze6/dusty-node)
 
-La petición para login es la siguiente:
+## Poner la máquina a funcionar
 
-```
-POST /users/login HTTP/1.1
-Host: localhost:1337
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:51.0) Gecko/20100101 Firefox/51.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate
-Referer: http://localhost:1337/users/login
-Connection: close
-Upgrade-Insecure-Requests: 1
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 21
-
-user=admin&pass=admin
+```shell
+  git clone https://github.com/snooze6/dusty-node
+  cd dusty-environment
+  # Con esto creamos la imágen
+  make docker-build
+  # Con esto iniciamos el contenedor
+  make docker-run
 ```
 
-En el resultado vemos que nos redirige a '/' si el login es correcto y nos muestra error en caso contrario. Nuestro primer objetivo será sacar los nombres de usuarios de la base de datos
+Y la aplicación debería estar disponible en [http://localhost:1337](http://localhost:1337)
 
-### 2. Fichero del SO
-### 3. Deface?
+## NOSQL inyection hello-world
 
-# Cosas de Armando
 
-[NoSQL injection wordlist](https://github.com/cr0hn/nosqlinjection_wordlists/blob/master/mongodb_nosqli.txt)
+
+## Links de interés
+
+1. [Hacking NodeJS and MongoDB](http://blog.websecurify.com/2014/08/hacking-nodejs-and-mongodb.html)
+2. [NoSQL injection wordlist](https://github.com/cr0hn/nosqlinjection_wordlists/blob/master/mongodb_nosqli.txt)
