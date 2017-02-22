@@ -48,11 +48,6 @@ decode = function (req, res, next) {
     }
 };
 
-// Login render
-router.get('/login', function (req, res, next) {
-    return res.render('login')
-});
-
 // Login handler
 router.post('/login', function (req, res, next) {
 
