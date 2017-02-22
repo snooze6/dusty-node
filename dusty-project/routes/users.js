@@ -59,7 +59,7 @@ router.post('/login', function (req, res, next) {
     if (req.body && req.body.user && req.body.pass) {
         User.findOne({user: req.body.user, pass: req.body.pass}, function (err, user) {
             if (err) {
-                res.json({sucess: false, error: err.message})
+                res.status(500).json({sucess: false, error: err.message})
             } else {
                 if (user) {
                     // create a token
@@ -68,7 +68,7 @@ router.post('/login', function (req, res, next) {
                     });
                     res.json({sucess: true, token: token, user: user})
                 } else {
-                    res.json({sucess: false, error: 'Invalid credentials'})
+                    res.status(404).json({sucess: false, error: 'Invalid credentials'})
                 }
             }
         });
@@ -90,7 +90,7 @@ router.get('/cookies', decode, function (req, res, next) {
     if (req && req.decoded && req.decoded._doc &&  req.decoded._doc.user){
         res.json({sucess: true, cookies: 'Get the damm cookie, '+req.decoded._doc.user})
     } else {
-        res.json({sucess: false, cookies: 'We don\'t give cookies to anons'})
+        res.status(403).json({sucess: false, cookies: 'We don\'t give cookies to anons'})
     }
 });
 

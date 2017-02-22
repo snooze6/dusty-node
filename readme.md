@@ -34,7 +34,12 @@ Y la aplicación debería estar disponible en [http://localhost:1337](http://loc
 
 ## NOSQL inyection hello-world
 
-
+## TODO:
+  - Acabar GUI
+  - Soluciones:
+    * Ejercicio 1
+    * Ejercicio 2
+    * Ejercicio 3
 
 ## Links de interés
 

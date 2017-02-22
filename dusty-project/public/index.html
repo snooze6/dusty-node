@@ -1,8 +1,29 @@
 <html>
 <head>
+    <!--Bower components-->
+    <link rel="stylesheet" type="text/css" href="bower_components/materialize/dist/css/materialize.min.css" media="screen" />
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="bower_components/angular-materialize/src/angular-materialize.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Mine own components-->
     <script src="javascripts/app.js"></script>
+    <script src="javascripts/directives.js"></script>
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Dusty-Node</title>
+    <link rel="shortcut icon" type="image/png" href="images/cat2.png"/>
 </head>
-<body>
-<h1>Hello World</h1>
+<body ng-app="dusty-frontend" ng-controller="master">
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
+    <div ng-include="'pages/menu.html'"></div>
+    <div ng-view></div>
 </body>
 </html>

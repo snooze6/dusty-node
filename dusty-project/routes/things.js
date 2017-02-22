@@ -28,7 +28,7 @@ var Thing = mongoose.model('Thing', ThingSchema);
 // Get things
 router.get('/', auth, function(req, res, next) {
   var av = {$lte: 1}; var query={};
-  if (req.query.avaliable) {
+  if (req.query.avaliable && req.query.avaliable != 2) {
       av = req.query.avaliable;
   }
 
@@ -49,14 +49,6 @@ router.get('/', auth, function(req, res, next) {
           avaliable: av
       }
   }
-
-    // Todo: Eliminar esto
-    console.log(' - Params: ');
-    // http://localhost:1337/api/things?a%5Bb%5D=c => { a: { b: 'c' } }
-    // avaliable%5B%24gt%5D=-1 => { a: { b: 'c' } }
-    console.log(req.query);
-    console.log(' - Query: ');
-    console.log(query);
 
   Thing.find(query, function (err, things) {
         if (err) {

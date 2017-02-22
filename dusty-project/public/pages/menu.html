@@ -1,0 +1,27 @@
+<nav>
+    <div class="nav-wrapper  light-blue">
+        <a href="#!" class="brand-logo">
+            <img src="images/apple.png" width="64px"/>
+            <!--<i class="material-icons large">language</i>-->
+            <!--<i class="material-icons large">thumb_up</i>-->
+            <!--<i class="material-icons large">shopping_cart</i>-->
+        </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li ng-show="user.token"><a href="#!/items">Catalog</a></li>
+            <li ng-show="user.admin"><a href="#!/admin/users">Admin Users</a></li>
+            <li ng-show="user.admin"><a href="#!/admin/items">Admin Items</a></li>
+            <li ng-show="user.token"><a href="#!/admin">Profile</a></li>
+            <li ><a href="#!/about">About</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li ng-show="user.token"><a href="#!/items">Catalog</a></li>
+            <li ng-show="user.admin"><a href="#!/admin/users">Admin Users</a></li>
+            <li ng-show="user.admin"><a href="#!/admin/items">Admin Items</a></li>
+            <li ng-show="user.token"><a href="#!/admin">Profile</a></li>
+            <li><a href="#!/about">About</a></li>
+        </ul>
+    </div>
+    <!--<p>Hello {{user | json}}</p>-->
+</nav>
+<script>$(".button-collapse").sideNav();</script>

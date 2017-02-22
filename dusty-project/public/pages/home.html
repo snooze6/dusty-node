@@ -1,0 +1,18 @@
+
+<form ng-submit="search()">
+    <nav>
+        <div class="nav-wrapper  light-blue darken-1">
+            <form>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input ng-model="searchterm" id="search" type="search" required>
+                        <label for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+</form>
+
+<catalog ng-model="things"></catalog>

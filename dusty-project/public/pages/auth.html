@@ -1,0 +1,66 @@
+
+
+<div class="section"></div>
+<main>
+    <center>
+        <img class="responsive-img"
+             style="width: 250px;"
+             src="images/cat3.jpg" />
+
+        <div class="section"></div>
+        <h5 class="indigo-text">Please, login into your account</h5>
+        <div class="section"></div>
+
+        <div class="container">
+            <div class="z-depth-1 grey lighten-4 row"
+                 style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE; width: 60%">
+
+                <form class="col s12" method="post">
+                    <div class='row'>
+                        <div class='col s12'>
+                            <blockquote ng-show="show">
+                                Usuario y/o contraseña incorrectos
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class='input-field col s12'>
+                            <input ng-model="user.user" class='validate' type='text' name='email' id='email' required/>
+                            <label for='email'>Enter your username</label>
+                        </div>
+                    </div>
+
+                    <div class='row'>
+                        <div class='input-field col s12'>
+                            <input ng-model="user.pass" class='validate' type='password' name='password' id='password' required/>
+                            <label for='password'>Enter your password</label>
+                        </div>
+                        <!--<label style='float: right;'>-->
+                        <!--<a class='pink-text' href='#!'><b>Forgot Password?</b></a>-->
+                        <!--</label>-->
+                    </div>
+
+                    <br />
+                    <center>
+                        <div class='row'>
+                            <button ng-click="login()" type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+                        </div>
+                    </center>
+                </form>
+            </div>
+        </div>
+        <!--<a href="#!/register">Create account</a>-->
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+</main>
+<style>
+    body {
+        background-color: white; /*Default bg, similar to the background's base color*/
+        background-image: url("images/cat.jpg");
+        background-position: right bottom; /*Positioning*/
+        background-repeat: no-repeat; /*Prevent showing multiple background images*/
+    }
+</style>
