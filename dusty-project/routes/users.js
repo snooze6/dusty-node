@@ -10,7 +10,10 @@ var sanitizerPlugin = require('mongoose-sanitizer');
 var UserSchema = new mongoose.Schema({
     name: String,
     user: String,
-    pass: String,
+    pass: {
+      type: String,
+      select: false,
+    },
     rol: {
         type: Number,
         default: 0,
