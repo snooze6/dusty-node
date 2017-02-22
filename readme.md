@@ -43,7 +43,7 @@ Y la aplicación debería estar disponible en [http://localhost:1337](http://loc
     * Ejercicio 1
     * Ejercicio 2
     * Ejercicio 3
-  - Dockerizar
+  - ~~Dockerizar~~
 
 ## Links de interés
 
