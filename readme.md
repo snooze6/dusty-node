@@ -27,7 +27,6 @@ El docker se encuentra [aquí](https://github.com/snooze6/dusty-node)
 
 ```shell
   git clone https://github.com/snooze6/dusty-node
-  cd dusty-environment
   # Con esto creamos la imágen
   make docker-build
   # Con esto iniciamos el contenedor
@@ -39,7 +38,7 @@ Y la aplicación debería estar disponible en [http://localhost:1337](http://loc
 ## NOSQL inyection hello-world
 
 ## TODO:
-  - Acabar GUI
+  - ~~Acabar GUI~~
   - Soluciones:
     * Ejercicio 1
     * Ejercicio 2
