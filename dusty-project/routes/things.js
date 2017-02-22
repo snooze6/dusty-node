@@ -64,7 +64,7 @@ router.post('/', auth, function (req, res, next) {
     if (req && req.decoded && req.decoded._doc &&  req.decoded._doc.rol == 1){
         var body = eval(req.body);
 
-        if (body && body.has('title') && body.has('autor') && body.has('url')) {
+        if (body && body.title && body.autor && body.url) {
             var instance = new Thing();
 
             instance.title = body.title;
@@ -73,7 +73,7 @@ router.post('/', auth, function (req, res, next) {
 
             instance.save(function (err, data) {
                 if (err) {
-                    res.json({sucess: false, message: err.message})
+                    res.status(500).json({sucess: false, message: err.message})
                 } else {
                     res.json({sucess: true, data: data})
                 }

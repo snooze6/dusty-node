@@ -34,6 +34,13 @@ app.config(function($routeProvider) {
             templateUrl : 'pages/auth.html',
             controller  : 'auth'
         })
+        .when('/item', {
+            templateUrl : 'pages/item.html',
+            controller  : 'item',
+            resolve: {
+                factory: checkauth
+            }
+        })
 });
 
 app.controller('master', ['$location', '$rootScope', '$cookies', function ($location, $rootScope, $cookies) {
@@ -41,23 +48,23 @@ app.controller('master', ['$location', '$rootScope', '$cookies', function ($loca
         pass: '',
         user: '',
         name: '',
+        rol: '',
         token: null
     };
 
     if ($cookies.getObject('user')) {$rootScope.user = $cookies.getObject('user');}
 
     $rootScope.logout = function () {
-        console.log('Trying to logout');
-
         $rootScope.user = {
             pass: '',
             user: '',
             name: '',
+            rol: '',
             token: null
         };
         $cookies.remove('user');
 
-        $location.path('/');
+        $location.path('/auth');
     }
 }]);
 
@@ -81,12 +88,34 @@ app.controller('auth', ['users', '$scope', '$rootScope', '$location', '$cookies'
     $scope.login = function () {
         $users.login($rootScope.user.user, $rootScope.user.pass).then(function (data) {
             if (data.data.sucess){
-
+                // console.log(data.data);
                 $rootScope.user.token = data.data.token;
                 $location.path('/');
                 $cookies.putObject('user', $rootScope.user)
             }
         }, function (err) {
+            $scope.show = true;
+        })
+    }
+}]);
+
+app.controller('item', ['things', '$scope', '$rootScope', '$location', function($things, $scope, $rootScope, $location) {
+    $scope.item = {
+        title: '',
+        autor: '',
+        url: '12.gif',
+    };
+
+    $scope.show = false;
+    $scope.error = '';
+    
+    $scope.save = function () {
+        $things.addThing($scope.item.title, $scope.item.autor, $scope.item.url, $rootScope.user.token).then(function (data) {
+            // console.log(data.data);
+            $location.path(' /');
+        }, function (err) {
+            console.log(err);
+            $scope.error = err;
             $scope.show = true;
         })
     }
@@ -105,6 +134,13 @@ app.factory('things', [ '$http', function ($http){
                     headers: headers
                 }
             );
+        },
+        addThing: function (name, autor, url, token) {
+            return $http.post('api/things', {
+                title: name,
+                autor: autor,
+                url: url
+            },{headers: {'x-access-token': token}})
         }
     }
 }]);

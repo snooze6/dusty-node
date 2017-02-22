@@ -8,18 +8,14 @@
         </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-            <li ng-show="user.token"><a href="#!/items">Catalog</a></li>
-            <li ng-show="user.admin"><a href="#!/admin/users">Admin Users</a></li>
-            <li ng-show="user.admin"><a href="#!/admin/items">Admin Items</a></li>
-            <li ng-show="user.token"><a href="#!/admin">Profile</a></li>
+            <li ng-show="user.token"><a href="#!/item"><i class="material-icons">add</i></a></li>
             <li ><a href="#!/about">About</a></li>
+            <li ng-show="user.token"><a ng-click="logout()">{{user.user}}</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li ng-show="user.token"><a href="#!/items">Catalog</a></li>
-            <li ng-show="user.admin"><a href="#!/admin/users">Admin Users</a></li>
-            <li ng-show="user.admin"><a href="#!/admin/items">Admin Items</a></li>
-            <li ng-show="user.token"><a href="#!/admin">Profile</a></li>
+            <li ng-show="user.token"><a href="#!/item"><i class="material-icons">add</i></a></li>
             <li><a href="#!/about">About</a></li>
+            <li ng-show="user.token"><a ng-click="logout()">{{user.user}}</a></li>
         </ul>
     </div>
     <!--<p>Hello {{user | json}}</p>-->
