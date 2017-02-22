@@ -22,7 +22,7 @@ mongod-run:
 	mkdir -p /data/mongodb && mongod --fork --dbpath /data/mongodb --logpath /var/log/mongod.log
 
 node-run:
-	nodejs /opt/dusty-project/bin/www
+	forever /opt/dusty-project/bin/www
 
 # ---
 

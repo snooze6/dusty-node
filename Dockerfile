@@ -10,7 +10,9 @@ RUN apt-get install -y -q build-essential
 RUN apt-get install -y -q mongodb
 RUN apt-get install -y -q nodejs
 RUN apt-get install -y -q npm
+RUN apt-get install -y -q git
 RUN npm install -g bower
+RUN npm install -g forever
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 # ---
