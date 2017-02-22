@@ -10,7 +10,7 @@ Las bases de datos NoSQL es una tecnología que ha venido para quedarse, en una 
 
 Un buen ejemplo de esto es MongoDB, una base de datos documental que es ampliamente utilizada en la actualidad por multitud de aplicaciones. Si bien es cierto que estas bases de datos no usan SQL, los ataques de inyección siguen siendo posibles, surgiendo así los ataques de inyección NoSQL.
 
-### Diferencias entre NoSQL inyection y SQL inyection
+### Diferencias entre NoSQL injection y SQL injection
 
 En primer lugar, la facilidad de realización es similar, sin embargo una vulnerabilidad de inyección NoSQL puede ser menos grave por los siguientes motivos:
 
@@ -35,7 +35,7 @@ El código se encuentra [aquí](https://github.com/snooze6/dusty-node)
 
 Y la aplicación debería estar disponible en [http://localhost:1337](http://localhost:1337)
 
-## NOSQL inyection hello-world
+## NOSQL injection hello-world
 
 A la vista del siguiente código:
 
