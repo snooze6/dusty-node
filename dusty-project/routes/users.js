@@ -101,9 +101,12 @@ reset = function () {
             console.log('Resetting users...');
             [
                 ['Administrator', 'admin', 'admin', 1],
+                ['Admimistrator', 'admim', 'admim', 0],
+                ['Admon', 'admon', 'admon', 0],
+                ['Admon', 'admonos', 'admonos', 0],
                 ['User', 'user', 'user', 0],
                 ['Snooze', 'bad', 'motherfucker', 0],
-                ['flag', 'flag', 'y4Grq$nU%!PG', 0]
+                ['flag', 'flag', 'y4Grq#nU%!PG', 0]
             ].forEach(function (cred) {
                 console.log(' - Insterting '+cred);
 
