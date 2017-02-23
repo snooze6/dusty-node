@@ -71,7 +71,7 @@ router.post('/login', function (req, res, next) {
             }
         });
     } else {
-        res.json({sucess: false, error: 'No username or password sent'})
+        res.status(400).json({sucess: false, error: 'No username or password sent'})
     }
 });
 
