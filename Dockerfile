@@ -37,3 +37,4 @@ RUN cd /opt/dusty-project/public && bower install --allow-root
 # ---
 
 EXPOSE 1337
+ENTRYPOINT /bin/sh -c 'make -f /opt/dusty-project/Makefile _mn' 
